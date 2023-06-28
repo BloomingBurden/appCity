@@ -20,6 +20,7 @@ const createOrder = (data, form) => {
                             <h3 class="orders__preview">Расстояние</h3>
                             <p class="orders__descr">2367.01 км</p>
                         </div>
+                        <button class="remove-item">Показать</button>
                     </li>`;
 
     let roadItem = `<li class="road__item">
@@ -29,6 +30,7 @@ const createOrder = (data, form) => {
                         <p class="road__text road__text-time">Время: <span>2367 мин</span></p>
                         <p class="road__text road__text-volume">Объем аккумулятора: 8.58 %</p>
                         <p class="road__text road__text-weight">Вес груза: ${form.weight.value}г</p>
+                        <button class="remove-item">Показать</button>
                     </li>`;
 
     ORDERS.push({order, roadItem});
