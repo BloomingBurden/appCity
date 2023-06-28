@@ -6,7 +6,7 @@ export const onSubmitForm = (data) => {
 
     form.addEventListener('submit', (evt) => {
         evt.preventDefault();
-        
+        console.log(data.item);
         if (!data.item) {
             data.input.value = 'Пожалуйста, введите город из списка.';
             data.input.style.color = 'red';
@@ -17,9 +17,9 @@ export const onSubmitForm = (data) => {
             
         } else {
             createOrder(data.item, form);
-            layerChange();
             data.item = null;
             data.input.value = '';
+            layerChange();
         }
     })
 };

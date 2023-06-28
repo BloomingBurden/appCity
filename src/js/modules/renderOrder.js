@@ -1,9 +1,9 @@
-const ORDERS = [];
 const MAX = 3;
 const list = document.querySelector('.orders__list');
 const road = document.querySelector('.road__list');
-let roadNum = 0;
-let orderNum = 0;
+let currentNum = localStorage.length;
+let roadNum = MAX;
+let orderNum = MAX;
 
 const createOrder = (data, form) => {
     let order =  `<li class="orders__item">
@@ -19,6 +19,7 @@ const createOrder = (data, form) => {
                             <h3 class="orders__preview">Расстояние</h3>
                             <p class="orders__descr">2367.01 км</p>
                         </div>
+                        <button class="remove-item">Удалить</button>
                     </li>`;
 
     let roadItem = `<li class="road__item">
@@ -28,18 +29,23 @@ const createOrder = (data, form) => {
                         <p class="road__text road__text-time">Время: <span>2367 мин</span></p>
                         <p class="road__text road__text-volume">Объем аккумулятора: 8.58 %</p>
                         <p class="road__text road__text-weight">Вес груза: ${form.weight.value}г</p>
+                        <button class="remove-item">Удалить</button>
                     </li>`;
 
-    ORDERS.push({order, roadItem});
+    const json = JSON.stringify({order, roadItem});
+    
+    localStorage.setItem(`${currentNum}`, json);
+    roadNum++;
+    orderNum++
+    currentNum++;
+
     renderOrder();
 }
 
 const renderOrder = () => {
-    if (roadNum < MAX) {
-        list.innerHTML += ORDERS[orderNum].order;
-        road.innerHTML += ORDERS[roadNum].roadItem;
-        roadNum++;
-        orderNum++;
+    if (currentNum <= MAX) {
+        list.innerHTML += JSON.parse(localStorage.getItem(currentNum - 1)).order;
+        road.innerHTML += JSON.parse(localStorage.getItem(currentNum - 1)).roadItem;
     }
 };
 
@@ -47,18 +53,17 @@ const onClickShow = () => {
     const orderBtn = document.querySelector('.orders__more');
     const roadBtn = document.querySelector('.road__show');
 
-
     const showMore = (elem) => {
         if (elem === 'order') {
-            for (let i = 0; i < Math.min(MAX, ORDERS.length - orderNum); i++) {
-                list.innerHTML += ORDERS[orderNum].order;
+            for (let i = 0; i < Math.min(MAX, orderNum); i++) {
+                list.innerHTML += JSON.parse(localStorage.getItem(orderNum - 1)).order;
                 orderNum++;
             }
         }
 
         if (elem === 'road') {
-            for (let i = 0; i < Math.min(MAX, ORDERS.length - roadNum); i++) {
-                road.innerHTML += ORDERS[roadNum].roadItem;
+            for (let i = 0; i < Math.min(MAX, roadNum); i++) {
+                road.innerHTML += JSON.parse(localStorage.getItem(roadNum - 1)).roadItem;
                 roadNum++;
             }
         }
@@ -68,7 +73,4 @@ const onClickShow = () => {
     roadBtn.addEventListener('click', showMore.bind(null, 'road'));
 };
 
-onClickShow();
-
-
-export { createOrder }
+export { createOrder, onClickShow }
