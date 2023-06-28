@@ -1,0 +1,54 @@
+.road {
+  padding: 19px 0 145px;
+}
+
+.road__title {
+  text-align: center;
+  padding: 16px;
+  padding-bottom: 25px;
+  border-radius: 16px 16px 0 0;
+  background: $main-dark;
+  box-shadow: 0px 2px 8px 0px rgba(11, 11, 11, 0.25);
+}
+
+.road__list {
+  margin-bottom: 40px;
+}
+
+.road__item {
+  margin-bottom: 20px;
+  padding: 16px;
+  background-color: $main-dark;
+  border-radius: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:first-child {
+    border-radius: 0 0 16px 16px;
+  }
+}
+
+.road__preview {
+  margin-bottom: 4px;
+  color: #4F4F4F;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: -0.078px; 
+}
+
+.road__text {
+  margin-bottom: 6px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.road__text-time {
+  span {
+    color: $accent;
+  }
+}
+
