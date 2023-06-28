@@ -737,6 +737,7 @@ p {
   transition: 0.8s ease;
   -webkit-animation: layerAnime 0.8s ease forwards;
           animation: layerAnime 0.8s ease forwards;
+  background-color: #0E0E0E;
 }
 
 .layer--active {

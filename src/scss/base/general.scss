@@ -199,6 +199,7 @@ p {
   will-change: transform;
   transition: 0.8s ease;
   animation: layerAnime 0.8s ease forwards;
+  background-color: $dark;
 }
 
 .layer--active {
