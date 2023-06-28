@@ -2,8 +2,8 @@ const MAX = 3;
 const list = document.querySelector('.orders__list');
 const road = document.querySelector('.road__list');
 let currentNum = localStorage.length;
-let roadNum = MAX;
-let orderNum = MAX;
+let roadNum = localStorage.length - MAX;
+let orderNum = localStorage.length - MAX;
 
 const createOrder = (data, form) => {
     let order =  `<li class="orders__item">
@@ -57,14 +57,14 @@ const onClickShow = () => {
         if (elem === 'order') {
             for (let i = 0; i < Math.min(MAX, orderNum); i++) {
                 list.innerHTML += JSON.parse(localStorage.getItem(orderNum - 1)).order;
-                orderNum++;
+                orderNum--;
             }
         }
 
         if (elem === 'road') {
             for (let i = 0; i < Math.min(MAX, roadNum); i++) {
                 road.innerHTML += JSON.parse(localStorage.getItem(roadNum - 1)).roadItem;
-                roadNum++;
+                roadNum--;
             }
         }
     }

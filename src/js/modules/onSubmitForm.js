@@ -1,12 +1,13 @@
 import { createOrder } from "./renderOrder.js";
 import { layerChange } from "./layerChange.js";
+import { renderStorage } from "./renderStorage.js";
 
 export const onSubmitForm = (data) => {
     const form = document.querySelector('.form-order');
 
     form.addEventListener('submit', (evt) => {
         evt.preventDefault();
-        console.log(data.item);
+        
         if (!data.item) {
             data.input.value = 'Пожалуйста, введите город из списка.';
             data.input.style.color = 'red';
@@ -16,6 +17,7 @@ export const onSubmitForm = (data) => {
             },3000);
             
         } else {
+            renderStorage();
             createOrder(data.item, form);
             data.item = null;
             data.input.value = '';
