@@ -540,7 +540,6 @@ p {
 
 .main {
   height: 100%;
-  min-height: 100vh;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -726,7 +725,7 @@ p {
 }
 
 .layer {
-  z-index: 9999;
+  z-index: 999;
   position: absolute;
   top: 60px;
   left: 0;
@@ -1104,6 +1103,11 @@ p {
 
 .road__text-time span {
   color: #A9E34B;
+}
+
+.map__inner {
+  height: calc(100vh - 60px);
+  overflow: hidden;
 }
 
 .footer {

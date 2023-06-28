@@ -95,7 +95,6 @@ p {
 
 .main {
   height: 100%;
-  min-height: 100vh;
   flex: 1 1 auto;
 }
 
@@ -190,7 +189,7 @@ p {
 }
 
 .layer {
-  z-index: 9999;
+  z-index: 999;
   position: absolute;
   top: 60px;
   left: 0;
