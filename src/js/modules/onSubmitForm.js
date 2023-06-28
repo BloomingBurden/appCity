@@ -19,6 +19,7 @@ export const onSubmitForm = (data) => {
             createOrder(data.item, form);
             layerChange();
             data.item = null;
+            data.input.value = '';
         }
     })
 };
