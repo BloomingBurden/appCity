@@ -204,3 +204,31 @@ p {
 .layer--active {
   animation: layerAnimeUp 0.8s ease forwards;
 }
+
+.remove-item {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  font-size: 0;
+
+  width: 20px;
+  height: 20px;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 100%;
+    height: 1px;
+    background-color: $accent;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+}

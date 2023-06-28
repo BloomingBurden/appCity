@@ -744,6 +744,38 @@ p {
           animation: layerAnimeUp 0.8s ease forwards;
 }
 
+.remove-item {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.remove-item::after,
+.remove-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 100%;
+  height: 1px;
+  background-color: #A9E34B;
+}
+
+.remove-item::after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.remove-item::before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
 .header {
   border-bottom: 0.5px solid #2A2A2A;
   background: #131313;

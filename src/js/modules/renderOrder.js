@@ -1,3 +1,5 @@
+import { renderStorage } from "./renderStorage.js";
+
 const MAX = 3;
 const list = document.querySelector('.orders__list');
 const road = document.querySelector('.road__list');
@@ -35,19 +37,12 @@ const createOrder = (data, form) => {
     const json = JSON.stringify({order, roadItem});
     
     localStorage.setItem(`${currentNum}`, json);
-    roadNum++;
-    orderNum++
     currentNum++;
+    roadNum = localStorage.length - MAX;
+    orderNum = localStorage.length - MAX;
 
-    renderOrder();
+    renderStorage();
 }
-
-const renderOrder = () => {
-    if (currentNum <= MAX) {
-        list.innerHTML += JSON.parse(localStorage.getItem(currentNum - 1)).order;
-        road.innerHTML += JSON.parse(localStorage.getItem(currentNum - 1)).roadItem;
-    }
-};
 
 const onClickShow = () => {
     const orderBtn = document.querySelector('.orders__more');

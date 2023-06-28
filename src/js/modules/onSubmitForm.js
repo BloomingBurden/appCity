@@ -1,6 +1,5 @@
 import { createOrder } from "./renderOrder.js";
 import { layerChange } from "./layerChange.js";
-import { renderStorage } from "./renderStorage.js";
 
 export const onSubmitForm = (data) => {
     const form = document.querySelector('.form-order');
@@ -17,7 +16,6 @@ export const onSubmitForm = (data) => {
             },3000);
             
         } else {
-            renderStorage();
             createOrder(data.item, form);
             data.item = null;
             data.input.value = '';
